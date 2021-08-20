@@ -27,6 +27,6 @@ public class RandomController {
 
     @RequestMapping(value = "/random", method = RequestMethod.GET)
     public @ResponseBody String random(@RequestParam final Map<String, String> requestParameters) throws RandomServiceException {
-        return "suck";
+        return "sssss";
     }
 }

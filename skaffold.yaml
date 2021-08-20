@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta19
+kind: Config
+build:
+  artifacts:
+  - image: gcr.io/cellular-arbor-323518/random-crud
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+    - k8s/deploy.yaml
+profiles:
+- name: test
