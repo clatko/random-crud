@@ -1,0 +1,3 @@
+[submodule "helm-base"]
+	path = helm-base
+	url = git@github.com:clatko/helm-base.git
