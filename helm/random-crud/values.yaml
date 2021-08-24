@@ -1,0 +1,41 @@
+phc-base:
+  fullnameOverride: random-crud
+  replicaCount: 1
+  image:
+    repository: gcr.io/cellular-arbor-323518/random-crud
+    tag: latest
+    pullPolicy: Always
+  autoscaling:
+    enabled: false
+  ports:
+    - name: http
+      containerPort: 8080
+      protocol: TCP
+  service:
+    type: ClusterIP
+    ports:
+      - port: 8080
+        targetPort: http
+        protocol: TCP
+        name: http
+  env:
+    - name: CONSUL_HOST
+      value: consul-server.infra.svc.cluster.local
+  startupProbe:
+    httpGet:
+      port: http
+      path: /random/random
+    failureThreshold: 30
+    periodSeconds: 10
+  livenessProbe:
+    httpGet:
+      path: /random/random
+      port: http
+    failureThreshold: 3
+    periodSeconds: 10
+  readinessProbe:
+    httpGet:
+      path: /random/random
+      port: http
+    initialDelaySeconds: 5
+    periodSeconds: 5

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: random-crud
+version: 0.1.0
+dependencies:
+  - name: phc-base
+    version: 0.1.4
+    repository: https://phc.jfrog.io/artifactory/phc-helm

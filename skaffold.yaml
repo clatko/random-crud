@@ -3,10 +3,28 @@ kind: Config
 build:
   artifacts:
   - image: gcr.io/cellular-arbor-323518/random-crud
+    context: .
     jib: {}
 deploy:
-  kubectl:
-    manifests:
-    - k8s/deploy.yaml
+  helm:
+    releases:
+      - name: random-crud
+        chartPath: helm/random-crud
+        artifactOverrides:
+          phc-base.imageKey: gcr.io/cellular-arbor-323518/random-crud
+        namespace: clatko
+        createNamespace: true
+        valuesFiles: [helm/random-crud/values.yaml]
+        setValues:
+          phc-base:
+            skaffold: true
+            imageConfig:
+              pullPolicy: IfNotPresent
+portForward:
+  - resourceType: service
+    resourceName: random-crud
+    namespace: clatko
+    port: 8080
+    localPort: 8081
 profiles:
 - name: test

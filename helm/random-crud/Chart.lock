@@ -1,0 +1,6 @@
+dependencies:
+- name: phc-base
+  repository: https://phc.jfrog.io/artifactory/phc-helm
+  version: 0.1.4
+digest: sha256:3155e137ffa120efda0384f8eb61ee5614de6874d42810f3e84eecd16effebaa
+generated: "2021-08-24T15:27:01.32981-07:00"
