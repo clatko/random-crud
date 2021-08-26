@@ -2,7 +2,7 @@ apiVersion: skaffold/v2beta19
 kind: Config
 build:
   artifacts:
-  - image: gcr.io/cellular-arbor-323518/random-crud
+  - image: gcr.io/project-pluto-324014/random-crud
     context: .
     jib: {}
 deploy:
@@ -11,7 +11,7 @@ deploy:
       - name: random-crud
         chartPath: helm/random-crud
         artifactOverrides:
-          phc-base.imageKey: gcr.io/cellular-arbor-323518/random-crud
+          phc-base.imageKey: gcr.io/project-pluto-324014/random-crud
         namespace: clatko
         createNamespace: true
         valuesFiles: [helm/random-crud/values.yaml]

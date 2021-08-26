@@ -2,7 +2,7 @@ phc-base:
   fullnameOverride: random-crud
   replicaCount: 1
   image:
-    repository: gcr.io/cellular-arbor-323518/random-crud
+    repository: gcr.io/project-pluto-324014/random-crud
     tag: latest
     pullPolicy: Always
   autoscaling:

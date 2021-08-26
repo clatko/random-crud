@@ -40,7 +40,7 @@ jib {
 		image = 'gcr.io/distroless/java:11-debug'
 	}
 	to {
-		image = 'gcr.io/cellular-arbor-323518/' + project.archivesBaseName
+		image = 'gcr.io/project-pluto-324014/' + project.archivesBaseName
 		tags = ["latest", version]
 	}
 	container {
